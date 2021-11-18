@@ -1,3 +1,9 @@
+# Python Hello World with Flask
+Flask is an open source web application framework for Python. 
+This project generate a Flask application and deploying it to an AWS Elastic Beanstalk environment.
+
+## Python Setup
+
 Create and activate a virtual environment
 ```
 python3 -m venv ./venv
@@ -24,6 +30,8 @@ To minimize the size of the source bundle that you upload during deployment, add
 echo venv > .ebignore
 ```
 
+## Create Elasticbeanstalk Environment and Application
+
 ATTENTION: install EB CLI using https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install.html#eb-cli3-install.scripts
 
 Initialize Elastic Beanstalk application
@@ -47,3 +55,27 @@ Create Elastic Beanstalk environment and upload application
 ```
 eb create PythonHelloWorld-Production -cname pyhelloworld --elb-type application --instance-type t3.medium --min-instances 2 --max-instances 2 --vpc
 ```
+
+## Application Deployment
+
+Deploy a new version of application
+```
+eb deploy --label <version_label> <environment-name>
+```
+
+You can customize deployment with .ebextension file 
+```
+option_settings:
+  aws:elasticbeanstalk:command:
+    DeploymentPolicy: Rolling
+    BatchSizeType: Percentage
+    BatchSize: 25
+```
+Use the DeploymentPolicy option to set the deployment type. 
+The following values are supported:
+- AllAtOnce – Disables rolling deployments and always deploys to all instances simultaneously.
+- Rolling – Enables standard rolling deployments.
+- RollingWithAdditionalBatch – Launches an extra batch of instances, before starting the deployment, to maintain full capacity.
+- Immutable – Performs an immutable update for every deployment.
+- TrafficSplitting – Performs traffic-splitting deployments to canary-test your application deployments.
+
