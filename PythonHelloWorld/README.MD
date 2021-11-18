@@ -53,7 +53,7 @@ option_settings:
 
 Create Elastic Beanstalk environment and upload application
 ```
-eb create PythonHelloWorld-Production -cname pyhelloworld --elb-type application --instance-type t3.medium --min-instances 2 --max-instances 2 --vpc
+eb create PythonHelloWorld-Production -cname pyhelloworld
 ```
 
 ## Application Deployment
@@ -73,9 +73,9 @@ option_settings:
 ```
 Use the DeploymentPolicy option to set the deployment type. 
 The following values are supported:
-- AllAtOnce – Disables rolling deployments and always deploys to all instances simultaneously.
-- Rolling – Enables standard rolling deployments.
-- RollingWithAdditionalBatch – Launches an extra batch of instances, before starting the deployment, to maintain full capacity.
-- Immutable – Performs an immutable update for every deployment.
-- TrafficSplitting – Performs traffic-splitting deployments to canary-test your application deployments.
+- __AllAtOnce__ – Disables rolling deployments and always deploys to all instances simultaneously.
+- __Rolling__ – Enables standard rolling deployments.
+- __RollingWithAdditionalBatch__ – Launches an extra batch of instances, before starting the deployment, to maintain full capacity.
+- __Immutable__ – Performs an immutable update for every deployment.
+- __TrafficSplitting__ – Performs traffic-splitting deployments to canary-test your application deployments.
 

@@ -15,6 +15,10 @@ def bikes():
 def cars():
     return 'Welcome to Cars page'
 
+@application.route('/bus')
+def cars():
+    return 'Welcome to Bus page'
+
 if __name__ == '__main__':
     application.debug = True
     application.run(host='0.0.0.0', port=8080)
