@@ -1,20 +1,20 @@
 from flask import Flask
 from markupsafe import escape
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route('/')
+@application.route('/')
 def index():
     return 'Welcome to Index page'
 
-@app.route('/bikes')
+@application.route('/bikes')
 def bikes():
     return 'Welcome to Bikes page'
 
-@app.route('/cars')
+@application.route('/cars')
 def cars():
     return 'Welcome to Cars page'
 
 if __name__ == '__main__':
-    app.debug = True
-    app.run()
+    application.debug = True
+    application.run(host='0.0.0.0', port=8080)
