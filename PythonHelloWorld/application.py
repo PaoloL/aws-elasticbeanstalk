@@ -16,7 +16,7 @@ def cars():
     return 'Welcome to Cars page'
 
 @application.route('/bus')
-def cars():
+def bus():
     return 'Welcome to Bus page'
 
 if __name__ == '__main__':
