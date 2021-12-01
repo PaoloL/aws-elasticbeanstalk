@@ -20,7 +20,7 @@ pip freeze > requirements.txt
 
 Test the application in local
 ```
-python3 hello.py
+python3 application.py
 ```
 
 When you deploy, Elastic Beanstalk creates a new virtual environment on the server instances and installs the libraries listed in requirements.txt. 
@@ -79,3 +79,7 @@ The following values are supported:
 - __Immutable__ – Performs an immutable update for every deployment.
 - __TrafficSplitting__ – Performs traffic-splitting deployments to canary-test your application deployments.
 
+Terminate your environment
+```
+eb terminate <environment name>
+```
